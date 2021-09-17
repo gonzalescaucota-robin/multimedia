@@ -17,9 +17,11 @@ class CreateAsistenciasTable extends Migration
             $table->id();
             $table->date('fecha');
             $table->string('asistencia',50);
-            
-            $table->unsignedBigInteger('id_usuario');
-            $table->foreign('id_usuario')->references('id')->on('usuarios');
+            //$table->unsignedBigInteger('usuario_id')->nullable();
+
+            //$table->foreign('id_usuario')
+                    //->references('id')->on('usuarios')
+                    //->onDelete('set null');
 
             $table->timestamps();
         });

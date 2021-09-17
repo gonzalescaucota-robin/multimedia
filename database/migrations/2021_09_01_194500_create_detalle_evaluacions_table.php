@@ -19,13 +19,13 @@ class CreateDetalleEvaluacionsTable extends Migration
             $table->string('respuesta_estudiante');
             $table->integer('nota');
 
-            $table->unsignedBigInteger('id_tema');
-            $table->unsignedBigInteger('id_estudiante');
+            //$table->unsignedBigInteger('id_tema');
+            //$table->unsignedBigInteger('id_estudiante');
             
-            $table->foreign('id_tema')->references('id')->on('temas');
-            $table->foreign('id_estudiante')->references('id')->on('usuarios');
+            //$table->foreign('id_tema')->references('id')->on('temas');
+            //$table->foreign('id_estudiante')->references('id')->on('usuarios');
 
-            $table->timestamps();
+            //$table->timestamps();
         });
     }
 

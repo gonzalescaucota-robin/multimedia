@@ -19,15 +19,16 @@ class CreateEvaluacionsTable extends Migration
             $table->date('fecha');
             $table->string('nota_evaluacion',50);
 
-            $table->unsignedBigInteger('id_tema');
-            $table->unsignedBigInteger('id_profesor');
-            $table->unsignedBigInteger('id_estudiante');
+            //$table->unsignedBigInteger('id_tema')->nullable();
+            //$table->unsignedBigInteger('id_usuario')->nullable();
 
-            $table->foreign('id_tema')->references('id')->on('temas');
-            $table->foreign('id_profesor')->references('id')->on('usuarios');
-            $table->foreign('id_estudiante')->references('id')->on('usuarios');
+            //$table->foreign('id_tema')
+                    //->references('id')->on('temas')
+                    //->onDelete('set null');
+            //$table->foreign('id_usuario')
+                    //->references('id')->on('usuarios')
+                    //->onDelete('set null');
            
-
             $table->timestamps();
         });
     }

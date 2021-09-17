@@ -19,8 +19,8 @@ class CreatePreguntasTable extends Migration
             $table->string('pregunta');
             $table->string('respuesta');
 
-            $table->unsignedBigInteger('id_tema');
-            $table->foreign('id_tema')->references('id')->on('temas');
+            //$table->unsignedBigInteger('id_tema');
+            //$table->foreign('id_tema')->references('id')->on('temas');
 
             $table->timestamps();
         });

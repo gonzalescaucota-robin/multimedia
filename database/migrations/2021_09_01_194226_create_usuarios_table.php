@@ -22,10 +22,11 @@ class CreateUsuariosTable extends Migration
             $table->string('direccion',100);
             $table->string('usuario',50);
             $table->string('password');
+            //$table->unsignedBigInteger('rol_id')->nullable();
 
-            $table->unsignedBigInteger('id_rol');
-
-            $table->foreign('id_rol')->references('id')->on('rols');
+            //$table->foreign('rol_id')
+                    //->references('id')->on('rols')
+                    //->onDelete('set null');
 
             $table->timestamps();
         });

@@ -18,8 +18,10 @@ class CreateActividadesTable extends Migration
             $table->string('titulo');
             $table->text('descripcion');
 
-            $table->unsignedBigInteger('id_materia');
-            $table->foreign('id_materia')->references('id')->on('materias');
+            //$table->unsignedBigInteger('id_materia')->nullable();
+            //$table->foreign('id_materia')
+                    //->references('id')->on('materias')
+                    //->onDelete('set null');
 
             $table->timestamps();
         });

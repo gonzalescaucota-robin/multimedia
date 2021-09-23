@@ -13,9 +13,13 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+        container: {
+            center: true,
+                },
             },
         },
     },
 
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };
+

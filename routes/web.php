@@ -1,8 +1,10 @@
 <?php
-
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EvaluacionController;
+use App\Http\Controllers\TemaController;
 
-/*
+/*  
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -20,3 +22,7 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+ 
+Route::resource('usuario', UsuarioController::class);
+Route::resource('evaluacion', EvaluacionController::class);
+Route::resource('tema', TemaController::class);

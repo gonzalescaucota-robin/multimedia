@@ -37,7 +37,13 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new usuario();
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+        return redirect()->route('usuario.show',$usuario);
     }
 
     /**
@@ -58,9 +64,9 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(usuario $usuario)
     {
-        //
+        return view('usuario.edit', compact('usuario'));
     }
 
     /**
@@ -70,12 +76,16 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(request $request,usuario $usuario)
     {
-        //
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+        return redirect()->route('usuario.show',$usuario);
     }
 
-    /**
+    /**ss
      * Remove the specified resource from storage.
      *
      * @param  int  $id

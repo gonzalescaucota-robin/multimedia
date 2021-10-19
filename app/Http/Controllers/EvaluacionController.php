@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Evaluacion;
 
 class EvaluacionController extends Controller
 {
@@ -13,7 +14,8 @@ class EvaluacionController extends Controller
      */
     public function index()
     {
-        //
+        $tema = tema::orderBy('id','asc')->paginate();
+        return view('tema.index', compact('tema'));
     }
 
     /**
@@ -23,7 +25,8 @@ class EvaluacionController extends Controller
      */
     public function create()
     {
-        //
+        $evaluacion = evaluacion::all();
+        return view('evaluacion.create', compact('evaluacion'));
     }
 
     /**
@@ -34,7 +37,12 @@ class EvaluacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $evaluacion = new evaluacion();
+        $evaluacion->name = $request->name;
+        $evaluacion->descripcion = $request->descripcion;
+        $evaluacion->tema_id = $request->tema_id;
+        $evaluacion->save();
+        return redirect()->route('evaluacion.show',$evaluacion);
     }
 
     /**
@@ -45,7 +53,8 @@ class EvaluacionController extends Controller
      */
     public function show($id)
     {
-        //
+        $evaluacion = evaluacion::find($id);
+        return view('evaluacion.show', compact('evaluacion'));
     }
 
     /**
@@ -56,7 +65,8 @@ class EvaluacionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $evaluacion = evaluacion::find($id);
+        return view('evaluacion.edit', compact('evaluacion'));
     }
 
     /**
@@ -68,7 +78,12 @@ class EvaluacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $evaluacion = new evaluacion();
+        $evaluacion->name = $request->name;
+        $evaluacion->descripcion = $request->descripcion;
+        $evaluacion->tema_id = $request->tema_id;
+        $evaluacion->save();
+        return redirect()->route('evaluacion.show',$evaluacion);
     }
 
     /**

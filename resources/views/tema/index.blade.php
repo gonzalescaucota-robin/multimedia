@@ -1,13 +1,13 @@
 @extends('layouts.layout')
 
-@section('title','Usuarios')
+@section('title','Temas')
 
 @section('content')
-    <h1><a class="block nt-1 text-lg leading-tight font-medium text-black hover:underline">Bienvenido a la seccion de los usuarios</a></h1>
+    <h1><a class="block nt-1 text-lg leading-tight font-medium text-black hover:underline">Bienvenido a la seccion de los temas</a></h1>
     <a href="/usuario/create" class="block nt-1 text-lg leading-tight font-medium text-black hover:underline">Crear nuevo usuario...</a>
     <div class=" max-w-md max-width: 28rem/* 448px */ bg-gray-300 mx-auto">
     <div class="grid sn-grid-cols-1 md-grid-cols-2 lg-grid-cols-4 gap-4">
-		@foreach($usuario as $usuario)
+		@foreach($tema as $tema)
 			<div class="max-w-md mx-auto bg-white rounded-x1 shadow-nd overflow-hidden md:max-w-2x1">
 				<div class="md:flex">
 					<div class="p-8">

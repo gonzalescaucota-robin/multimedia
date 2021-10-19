@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Tema;
 
 class TemaController extends Controller
 {
@@ -13,7 +14,8 @@ class TemaController extends Controller
      */
     public function index()
     {
-        //
+        $tema = tema::orderBy('id','asc')->paginate();
+        return view('tema.index', compact('tema'));
     }
 
     /**
@@ -23,7 +25,7 @@ class TemaController extends Controller
      */
     public function create()
     {
-        //
+        return view('tema.create');
     }
 
     /**
@@ -32,9 +34,13 @@ class TemaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,tema $tema)
     {
-        //
+        $tema->name = $request->name;
+        $tema->descripcion = $request->descripcion;
+        $tema->materia_id = $request-> materia_id;
+        $tema->save();
+        return redirect()->route('tema.show',$tema);
     }
 
     /**
@@ -45,7 +51,8 @@ class TemaController extends Controller
      */
     public function show($id)
     {
-        //
+        $tema = tema::find($id);
+        return view('tema.show', compact('tema'));
     }
 
     /**
@@ -56,7 +63,8 @@ class TemaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tema = tema::find($id);
+        return view('tema.edit', compact('tema'));
     }
 
     /**
@@ -68,7 +76,11 @@ class TemaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tema->name = $request->name;
+        $tema->descripcion = $request->descripcion;
+        $tema->materia_id = $request->materia_id;
+        $tema->save();
+        return redirect()->route('tema.show',$tema);
     }
 
     /**

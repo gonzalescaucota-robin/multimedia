@@ -3,6 +3,9 @@ use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EvaluacionController;
 use App\Http\Controllers\TemaController;
+use App\Http\Controllers\ActividadController;
+use App\Http\Controllers\AsistenciaController;
+use App\Http\Controllers\MateriaController;
 
 /*  
 |--------------------------------------------------------------------------
@@ -26,3 +29,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::resource('usuario', UsuarioController::class);
 Route::resource('evaluacion', EvaluacionController::class);
 Route::resource('tema', TemaController::class);
+Route::resource('actividad', ActividadController::class);
+Route::resource('asistencia', AsistenciaController::class);
+Route::resource('materia', MateriaController::class);
